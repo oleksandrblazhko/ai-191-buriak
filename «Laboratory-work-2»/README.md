@@ -1,2 +1,1 @@
 ### «Основи роботи з програмним інструментом моделювання загроз Microsoft Threat Modeling Tool» 
-![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/oleksandrblazhko/ai-191-buriak/%C2%ABlaboratory-work-2%C2%BB/%C2%ABLaboratory-work-2%C2%BB/UMLDeployment.puml)
