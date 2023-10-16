@@ -1,1 +1,1 @@
-![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/oleksandrblazhko/ai-191-buriak/%C2%AB«laboratory-work-2»%C2%BB/%C2%AB«Laboratory-work-2»%C2%BB/UML-Deployment.puml)
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/oleksandrblazhko/ai-191-buriak/«laboratory-work-2»/«Laboratory-work-2»/UML-Deployment.puml)
