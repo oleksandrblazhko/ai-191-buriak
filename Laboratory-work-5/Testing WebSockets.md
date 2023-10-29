@@ -21,3 +21,32 @@ WebSockets можна використовувати через незашифр
 
 Як і будь-які дані, отримані з ненадійних джерел, дані мають бути належним чином оброблені та закодовані. Дивіться також [Top 10-2017 A1-Ін'єкція](https://owasp.org/www-project-top-ten/2017/A1_2017-Injection) і [Top 10-2017 A7-Міжсайтовий сценарій (XSS)](https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS)).
 
+### Цілі тестування
+
+- Визначте використання WebSockets.
+- Оцініть його реалізацію, використовуючи ті самі тести на звичайних каналах HTTP.
+
+### Як протестувати
+#### Тестування чорної скриньки
+
+ 1. Визначте, що програма використовує WebSockets.
+     - Перегляньте вихідний код на стороні клієнта для схеми `ws://` або `wss://` URI.
+     - Використовуйте Інструменти розробника Google Chrome, щоб переглянути зв’язок мережі WebSocket.
+     - Використовуйте вкладку WebSocket [ZAP’s](https://www.zaproxy.org/).
+ 2.   Джерело.
+
+      - За допомогою клієнта WebSocket (його можна знайти в розділі [Інструменти]() нижче) спробуйте підключитися до віддаленого сервера WebSocket. Якщо з’єднання встановлено, сервер може не перевіряти вихідний заголовок рукостискання WebSocket.
+ 3. Конфіденційність і Цілісність.
+
+      - Переконайтеся, що підключення WebSocket використовує SSL для передачі конфіденційної інформації `wss://`.
+      - Перевірте впровадження SSL на наявність проблем із безпекою (дійсний сертифікат, BEAST, CRIME, RC4 тощо). Див. розділ [Тестування на слабку безпеку транспортного рівня](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security) цього посібника.
+ 4. Аутентифікація.
+
+      - WebSockets не обробляють автентифікацію, слід проводити звичайні тести автентифікації чорної скриньки. Зверніться до розділів [Тестування автентифікації](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/04-Authentication_Testing/README) цього посібника.
+ 5. Авторизація.
+
+      - WebSockets не обробляють авторизацію, слід провести звичайні тести авторизації чорної скриньки. Зверніться до розділів [Тестування авторизації](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing/README) цього посібника.
+ 6. Дезінфекція входу.
+
+      - Використовуйте вкладку WebSocket у [ZAP’s](https://www.zaproxy.org), щоб відтворювати та змішувати запити та відповіді WebSocket. Зверніться до розділів [Тестування для перевірки даних](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README) цього посібника.
+   
