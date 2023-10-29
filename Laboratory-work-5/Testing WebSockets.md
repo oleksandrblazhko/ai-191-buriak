@@ -48,5 +48,7 @@ WebSockets можна використовувати через незашифр
       - WebSockets не обробляють авторизацію, слід провести звичайні тести авторизації чорної скриньки. Зверніться до розділів [Тестування авторизації](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing/README) цього посібника.
  6. Дезінфекція входу.
 
-      - Використовуйте вкладку WebSocket у [ZAP’s](https://www.zaproxy.org), щоб відтворювати та змішувати запити та відповіді WebSocket. Зверніться до розділів [Тестування для перевірки даних](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README) цього посібника.
+      - Використовуйте вкладку WebSocket у [ZAP’s](https://www.zaproxy.org/), щоб відтворювати та змішувати запити та відповіді WebSocket. Зверніться до розділів [Тестування для перевірки даних](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README) цього посібника.
    
+### Приклад 1
+Коли ми визначили, що програма використовує WebSockets (як описано вище), ми можемо використовувати [OWASP Zed Проксі-сервер атаки (ZAP)](https://www.zaproxy.org/) для перехоплення запиту WebSocket і відповідей. Після цього ZAP можна використовувати для відтворення та розмитості запитів/відповідей WebSocket.
