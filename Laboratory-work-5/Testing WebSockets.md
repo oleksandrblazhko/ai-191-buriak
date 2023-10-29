@@ -52,3 +52,32 @@ WebSockets можна використовувати через незашифр
    
 ### Приклад 1
 Коли ми визначили, що програма використовує WebSockets (як описано вище), ми можемо використовувати [OWASP Zed Проксі-сервер атаки (ZAP)](https://www.zaproxy.org/) для перехоплення запиту WebSocket і відповідей. Після цього ZAP можна використовувати для відтворення та розмитості запитів/відповідей WebSocket.
+![OWASP_ZAP_WebSockets](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/04a236a9-88cf-44b9-922a-299c315ada16)
+
+Малюнок 4.11.10-1: ZAP WebSockets
+
+### Приклад 2
+За допомогою клієнта WebSocket (його можна знайти в розділі [Інструменти]() нижче) спробуйте підключитися до віддаленого сервера WebSocket. Якщо підключення дозволено, сервер WebSocket може не перевіряти заголовок походження рукостискання WebSocket. Спробуйте відтворити раніше перехоплені запити, щоб перевірити, чи можливе міждоменне спілкування WebSocket.
+![WebSocket_Client](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/8c278f4f-b1c6-4622-bc93-90a444ef14a9)
+
+Малюнок 4.11.10-2: Клієнт WebSocket
+
+### Тестування сірого ящика
+
+Тестування сірого ящика схоже на тестування чорного ящика. У тестуванні сірого ящика тестувальник пера частково знає програму. Єдина відмінність тут полягає в тому, що ви можете мати документацію API для програми, що тестується, яка містить очікуваний запит WebSocket і відповіді.
+
+### Інструменти
+
+- [OWASP Zed Проксі-сервер атаки (ZAP)](https://www.zaproxy.org/)
+- [Клієнт WebSocket](https://github.com/ethicalhack3r/scripts/blob/master/WebSockets.html)
+- [Простий клієнт Google Chrome WebSocket](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en)
+
+### Список літератури
+
+- [HTML5 Rocks – Представляємо WebSockets: перенесення сокетів у Інтернет](https://web.dev/articles/websockets-basics?hl=ru)
+- [W3C - The WebSocket API](https://websockets.spec.whatwg.org/#network)
+- [IETF - Протокол WebSocket](https://datatracker.ietf.org/doc/html/rfc6455)
+- [Крістіан Шнайдер - міжсайтове викрадення WebSocket (CSWSH)](https://christian-schneider.net/CrossSiteWebSocketHijacking.html)
+- [Jussi-Pekka Erkkilä - Аналіз безпеки WebSocket (PDF)](https://juerkkil.iki.fi/files/writings/websocket2012.pdf)
+- [Роберт Кох - Про WebSockets у тестуванні на проникнення](https://www.ub.tuwien.ac.at/dipl/2013/AC07815487.pdf)
+- [DigiNinja - OWASP ZAP і Web Sockets](https://digi.ninja/blog/zap_web_sockets.php)
