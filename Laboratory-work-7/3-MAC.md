@@ -18,6 +18,54 @@
 ![Снимок экрана (78)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/82ad63da-9e3e-4b56-9e48-ecb17b04c355)
 
 ### 6. Створіть INSERT/UPDATE/DELETE-правила повноважного керування доступом для користувача.
+
+Знімаємо права доступу до реальної таблиці та встановлюємо права доступу на віртуальну таблицю:
+
+![Снимок экрана (92)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/c71b35d2-d330-48e3-8427-dedb83c1d971)
+
+Перевіримо вміст реальної та віртуальної таблиць:
+
+![Снимок экрана (92)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/4b6235cc-16d3-4e5d-96a6-963f569539cd)
+
+Змінимо у одного елемента мітку конфіденційності:
+
+![Снимок экрана (93)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/e9b03e5e-2a0f-4171-b0c3-f5e518ff53df)
+
+
+Було створено правила повноважного керування доступом для користувача buryak
+
 ![Снимок экрана (80)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/b1cc428e-a136-4810-a06d-1eb4f8089b24)
 
-### 7.
+### 7. Встановіть з’єднання з СКБД від імені нового користувача.
+![Снимок экрана (81)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/64a96c49-77ac-44c6-a161-c8ba7366f4c2)
+
+### 8. Від імені нового користувача перевірте роботу механізму повноважного керування, виконавши операції SELECT, INSERT, UPDATE, DELETE
+
+Для початку змінемо значення стовпця "spot_conf" на 2 для того щоб користувач buryak міг їх побачити.
+![Снимок экрана (83)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/06ed3430-5d2d-472b-8688-ae4478835f2b)
+
+![Снимок экрана (83)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/ff52bd05-6bc2-4ffc-b765-c8d8920a0297)
+
+SELECT
+
+![Снимок экрана (83)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/bf65470f-5571-4232-a290-adbb371815cc)
+
+INSERT
+
+Як бачимо, користувач baranov не бачить нового запису, адже мітка конфіденційності нового запису більша, ніж у користувача.
+
+![Снимок экрана (87)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/1efe153e-934c-4352-8eb4-a546ed0df6e8)
+
+![Снимок экрана (83)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/bf65470f-5571-4232-a290-adbb371815cc)
+
+Якщо виконати запит на перегляд таблиці від коритсувача postgres то бачимо що новий запис було успішно внесено в таблицю.
+
+![Снимок экрана (88)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/02f2d4f0-2fb8-4456-9d75-cb334a4b0705)
+
+UPDATE
+
+![Снимок экрана (89)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/2c30e64c-3b7b-4cb5-97fb-524b9abfc3a8)
+
+DELETE
+
+![Снимок экрана (89)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/97d74e09-0240-41f5-b71a-e2becef19fce)
