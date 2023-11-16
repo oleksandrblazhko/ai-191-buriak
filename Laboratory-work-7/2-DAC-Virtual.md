@@ -30,3 +30,17 @@ UPDATE
 DELETE
 
 ![Снимок экрана (72)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/4119b114-d7b6-4723-8221-fb83168f580f)
+
+### 6. Перевірте роботу механізму вибіркового керування, виконавши операції INSERT, UPDATE, DELETE до віртуальної таблиці.
+
+INSERT
+
+![Снимок экрана (87)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/d9b4e618-8f51-49c6-83d2-6fed6ffce27e)
+
+UPDATE
+
+![Снимок экрана (89)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/27a5cddf-1515-4e47-a7b6-11a530408099)
+
+DELETE
+
+![Снимок экрана (89)](https://github.com/oleksandrblazhko/ai-191-buriak/assets/145441728/3ae105f2-bd6e-41c4-a7fa-cf957883949e)
